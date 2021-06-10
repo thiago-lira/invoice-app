@@ -8,6 +8,7 @@ namespace Tests
     {
         private readonly List<Invoice> Invoices = new();
 
+        // TODO: Refactor to GetInvoiceByOrder()
         public List<Invoice> GetInvoices()
         {
             return Invoices;
