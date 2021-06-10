@@ -20,8 +20,7 @@ namespace Services
             {
                 Seller = createInvoice.Seller,
                 Customer = createInvoice.Customer,
-                Payment = createInvoice.Payment,
-                Items = createInvoice.Items,
+                Order = createInvoice.Order,
                 CreatedAt = DateTime.UtcNow
             };
 

@@ -1,6 +1,6 @@
 ﻿namespace Core.Models
 {
-    public class InvoiceItem
+    public class OrderItem
     {
         public Product Product { get; set; }
         public int Quantity { get; set; }
