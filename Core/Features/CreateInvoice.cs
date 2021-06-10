@@ -8,14 +8,14 @@ namespace Core.Features
         public Customer Customer { get; }
         public Seller Seller { get; }
         public Payment Payment { get; }
-        public List<InvoiceItem> Items { get; }
+        public Order Order { get; }
 
-        public CreateInvoice(Customer customer, Seller seller, Payment payment, List<InvoiceItem> items)
+        public CreateInvoice(Customer customer, Seller seller, Payment payment, Order order)
         {
             Customer = customer;
             Seller = seller;
             Payment = payment;
-            Items = items;
+            Order = order;
         }
     }
 }

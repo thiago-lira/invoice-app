@@ -17,8 +17,8 @@ namespace Tests
             var seller = new Seller();
             var customer = new Customer();
             var payment = new Payment();
-            var items = new List<InvoiceItem>();
-            var createInvoice = new CreateInvoice(customer, seller, payment, items);
+            var order = new Order();
+            var createInvoice = new CreateInvoice(customer, seller, payment, order);
 
             handler.Execute(createInvoice);
 
