@@ -5,7 +5,8 @@ namespace Core.Models
 {
     public class Invoice
     {
-        public string Name { get; set; }
+        // TODO: Change to Enum
+        public string Status { get; set; }
         public double Total { get; set; }
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
