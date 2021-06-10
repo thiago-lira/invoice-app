@@ -8,7 +8,6 @@ namespace Core.Models
         public string Status { get; set; }
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
-        public Customer Customer { get; set; }
         public Seller Seller { get; set; }
         public Order Order { get; set; }
     }

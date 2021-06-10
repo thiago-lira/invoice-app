@@ -17,13 +17,19 @@ namespace Tests
             var seller = new Seller();
             var customer = new Customer();
             var payment = new Payment();
-            var order = new Order();
+            var order = new Order()
+            {
+                Customer = customer
+            };
             var createInvoice = new CreateInvoice(customer, seller, payment, order);
 
             handler.Execute(createInvoice);
 
-            var savedInvoice = repository.GetInvoices().Where(i => i.Customer == customer);
-            Assert.NotNull(savedInvoice);
+            var createdInvoice = repository
+                .GetInvoices()
+                .Where(i => i.Order.Customer == customer)
+                .FirstOrDefault();
+            Assert.NotNull(createdInvoice);
         }
     }
 }
