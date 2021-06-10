@@ -19,7 +19,6 @@ namespace Services
             var invoice = new Invoice
             {
                 Seller = createInvoice.Seller,
-                Customer = createInvoice.Customer,
                 Order = createInvoice.Order,
                 CreatedAt = DateTime.UtcNow
             };
