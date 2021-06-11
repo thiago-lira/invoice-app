@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Enums;
 using Core.Features;
 using Core.Models;
 using Infrastructure;
@@ -18,6 +19,7 @@ namespace Services
         {
             var invoice = new Invoice
             {
+                Status = InvoiceStatus.PENDING,
                 Seller = createInvoice.Seller,
                 Order = createInvoice.Order,
                 CreatedAt = DateTime.UtcNow
