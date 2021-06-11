@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Core.Models;
 using Infrastructure;
 
@@ -8,10 +9,11 @@ namespace Tests
     {
         private readonly List<Invoice> Invoices = new();
 
-        // TODO: Refactor to GetInvoiceByOrder()
-        public List<Invoice> GetInvoices()
+        public Invoice GetByOrder(Order order)
         {
-            return Invoices;
+            return Invoices
+                .Where(o => o.Order == order)
+                .FirstOrDefault();
         }
 
         public void Save(Invoice invoice)

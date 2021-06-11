@@ -25,10 +25,7 @@ namespace Tests
 
             handler.Execute(createInvoice);
 
-            var createdInvoice = repository
-                .GetInvoices()
-                .Where(i => i.Order.Customer == customer)
-                .FirstOrDefault();
+            var createdInvoice = repository.GetByOrder(order);
             Assert.NotNull(createdInvoice);
         }
     }
