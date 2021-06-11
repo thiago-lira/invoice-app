@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Core.Enums;
 using Core.Features;
 using Core.Models;
 using Services;
@@ -9,24 +8,42 @@ namespace Tests
 {
     public class CreateInvoiceHandlerExecute
     {
-        [Fact]
-        public void GivenACreateInvoiceCommandThenSaveAInvoice()
+        private readonly CreateInvoice CreateInvoice;
+        private readonly CreateInvoiceHandler Handler;
+        private readonly InvoiceRepositoryInMemory Repository;
+        private readonly Order Order;
+
+        public CreateInvoiceHandlerExecute()
         {
-            var repository = new InvoiceRepositoryInMemory();
-            var handler = new CreateInvoiceHandler(repository);
             var seller = new Seller();
             var customer = new Customer();
             var payment = new Payment();
-            var order = new Order()
+
+            Order = new Order()
             {
                 Customer = customer
             };
-            var createInvoice = new CreateInvoice(customer, seller, payment, order);
 
-            handler.Execute(createInvoice);
+            Repository = new InvoiceRepositoryInMemory();
+            Handler = new CreateInvoiceHandler(Repository);
+            CreateInvoice = new CreateInvoice(customer, seller, payment, Order);
+        }
+        [Fact]
+        public void GivenACreateInvoiceCommandThenSaveAInvoice()
+        {
+            Handler.Execute(CreateInvoice);
 
-            var createdInvoice = repository.GetByOrder(order);
+            var createdInvoice = Repository.GetByOrder(Order);
             Assert.NotNull(createdInvoice);
+        }
+
+        [Fact]
+        public void GivenACreateInvoiceCommandThenCreatedInvoiceHasStatusPending()
+        {
+            Handler.Execute(CreateInvoice);
+
+            var createdInvoice = Repository.GetByOrder(Order);
+            Assert.Equal(InvoiceStatus.PENDING, createdInvoice.Status);
         }
     }
 }
