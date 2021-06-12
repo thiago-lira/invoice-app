@@ -1,6 +1,6 @@
 ﻿namespace Core.Models
 {
-    public class Address
+    public class Address : ModelBase
     {
         public string Street { get; set; }
         public string City { get; set; }

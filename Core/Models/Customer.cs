@@ -1,6 +1,6 @@
 ﻿namespace Core.Models
 {
-    public class Customer
+    public class Customer : ModelBase
     {
         public string Name { get; set; }
         public string Email { get; set; }
