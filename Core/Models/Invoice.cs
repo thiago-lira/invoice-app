@@ -3,7 +3,7 @@ using Core.Enums;
 
 namespace Core.Models
 {
-    public class Invoice
+    public class Invoice : ModelBase
     {
         public InvoiceStatus Status { get; set; }
         public string Description { get; set; }
