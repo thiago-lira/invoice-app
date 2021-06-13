@@ -13,7 +13,7 @@ namespace Tests
 
         public async Task<Product> GetById(int id)
         {
-            await Task.Delay(100);
+            await Task.Delay(500);
 
             return _products
                 .Where(p => p.Id == id)
@@ -30,7 +30,7 @@ namespace Tests
         public async Task Save(Product product)
         {
             product.Id = ++id;
-            await Task.Delay(100);
+            await Task.Delay(500);
             _products.Add(product);
         }
     }
