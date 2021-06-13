@@ -9,7 +9,7 @@ namespace Tests
     public class ProductRepositoryInMemory : IProductRepository
     {
         private readonly List<Product> _products;
-        private static int id;
+        private int id;
 
         public ProductRepositoryInMemory()
         {
