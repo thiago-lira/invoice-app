@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Core.Models;
 using Infrastructure;
 
@@ -17,8 +17,9 @@ namespace Tests
                 .FirstOrDefault();
         }
 
-        public void Save(Seller seller)
+        public async Task Save(Seller seller)
         {
+            await Task.Delay(500);
             _sellers.Add(seller);
         }
     }

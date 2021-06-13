@@ -21,6 +21,7 @@ namespace API
         {
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<ISellerRepository, SellerRepository>();
             services.AddDbContext<ApplicationDbContext>();
             services.AddControllers();
         }

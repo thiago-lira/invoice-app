@@ -1,10 +1,11 @@
-﻿using Core.Models;
+﻿using System.Threading.Tasks;
+using Core.Models;
 
 namespace Infrastructure
 {
     public interface ISellerRepository
     {
-        public void Save(Seller seller);
-        public Seller GetSellerByName(string name);
+        Task Save(Seller seller);
+        Seller GetSellerByName(string name);
     }
 }
