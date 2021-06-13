@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Core.Models;
 using Infrastructure;
 
@@ -16,8 +17,9 @@ namespace Tests
                 .FirstOrDefault();
         }
 
-        public void Save(Customer customer)
+        public async Task Save(Customer customer)
         {
+            await Task.Delay(500);
             _customers.Add(customer);
         }
     }

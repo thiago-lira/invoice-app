@@ -20,6 +20,7 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddDbContext<ApplicationDbContext>();
             services.AddControllers();
         }

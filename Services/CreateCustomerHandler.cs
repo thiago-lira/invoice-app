@@ -1,4 +1,5 @@
-﻿using Core.Features;
+﻿using System.Threading.Tasks;
+using Core.Features;
 using Core.Models;
 using Infrastructure;
 
@@ -13,7 +14,7 @@ namespace Services
             _repository = repository;
         }
 
-        public void Execute(CreateCustomer createCustomer)
+        public async Task Execute(CreateCustomer createCustomer)
         {
             var customer = new Customer()
             {
@@ -22,7 +23,7 @@ namespace Services
                 Address = createCustomer.Address
             };
 
-            _repository.Save(customer);
+            await _repository.Save(customer);
         }
     }
 }
