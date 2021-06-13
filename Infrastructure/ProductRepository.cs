@@ -10,9 +10,9 @@ namespace Infrastructure
         {
         }
 
-        public Task<Product> GetById(int id)
+        public async Task<Product> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await DbSet.FindAsync(id);
         }
 
         public Product GetByName(string name)
