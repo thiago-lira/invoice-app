@@ -8,7 +8,7 @@ namespace Infrastructure
         public ApplicationDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            optionsBuilder.UseSqlite("Data Source=temp.db");
+            optionsBuilder.UseSqlite("Data Source=./temp.db");
 
             return new ApplicationDbContext(optionsBuilder.Options);
         }

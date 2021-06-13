@@ -15,9 +15,10 @@ namespace Infrastructure
             throw new NotImplementedException();
         }
 
-        public Task Save(Product product)
+        public async Task Save(Product product)
         {
-            throw new NotImplementedException();
+            await DbSet.AddAsync(product);
+            await Context.SaveChangesAsync();
         }
     }
 }
