@@ -21,7 +21,10 @@ namespace Infrastructure
         {
             base.OnModelCreating(modelBuilder);
 
+            // TODO: MOVE TO SPECIFIC FILES
             modelBuilder.Entity<Product>().HasKey(p => p.Id);
+
+            modelBuilder.Entity<Customer>().HasKey(c => c.Id);
         }
     }
 }

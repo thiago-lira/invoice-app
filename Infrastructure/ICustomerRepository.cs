@@ -1,10 +1,11 @@
-﻿using Core.Models;
+﻿using System.Threading.Tasks;
+using Core.Models;
 
 namespace Infrastructure
 {
     public interface ICustomerRepository
     {
-        public void Save(Customer customer);
-        public Customer GetCustomerByName(string name);
+        Task Save(Customer customer);
+        Customer GetCustomerByName(string name);
     }
 }

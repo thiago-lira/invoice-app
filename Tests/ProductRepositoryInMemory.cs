@@ -8,8 +8,14 @@ namespace Tests
 {
     public class ProductRepositoryInMemory : IProductRepository
     {
-        private readonly List<Product> _products = new();
+        private readonly List<Product> _products;
         private static int id;
+
+        public ProductRepositoryInMemory()
+        {
+            _products = new List<Product>();
+            id = 1;
+        }
 
         public async Task<Product> GetById(int id)
         {
@@ -29,7 +35,7 @@ namespace Tests
 
         public async Task Save(Product product)
         {
-            product.Id = ++id;
+            product.Id = id++;
             await Task.Delay(500);
             _products.Add(product);
         }
