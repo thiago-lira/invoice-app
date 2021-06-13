@@ -7,5 +7,6 @@ namespace Infrastructure
     {
         public Task Save(Product product);
         public Product GetByName(string name);
+        public Task<Product> GetById(int id);
     }
 }

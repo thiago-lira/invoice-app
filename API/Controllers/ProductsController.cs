@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Core.Features;
 using Core.Models;
 using Infrastructure;
@@ -13,6 +12,7 @@ namespace API.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
+
         public ProductsController(IProductRepository productRepository)
         {
             _productRepository = productRepository;

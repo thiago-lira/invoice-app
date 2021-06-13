@@ -10,6 +10,11 @@ namespace Infrastructure
         {
         }
 
+        public Task<Product> GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Product GetByName(string name)
         {
             throw new NotImplementedException();

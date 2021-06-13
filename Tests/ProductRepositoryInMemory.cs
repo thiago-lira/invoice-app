@@ -9,6 +9,16 @@ namespace Tests
     public class ProductRepositoryInMemory : IProductRepository
     {
         private readonly List<Product> _products = new();
+        private static int id;
+
+        public async Task<Product> GetById(int id)
+        {
+            await Task.Delay(100);
+
+            return _products
+                .Where(p => p.Id == id)
+                .FirstOrDefault();
+        }
 
         public Product GetByName(string name)
         {
@@ -19,7 +29,8 @@ namespace Tests
 
         public async Task Save(Product product)
         {
-            await Task.Delay(500);
+            product.Id = ++id;
+            await Task.Delay(100);
             _products.Add(product);
         }
     }
