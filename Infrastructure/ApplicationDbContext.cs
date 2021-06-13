@@ -23,8 +23,8 @@ namespace Infrastructure
 
             // TODO: MOVE TO SPECIFIC FILES
             modelBuilder.Entity<Product>().HasKey(p => p.Id);
-
             modelBuilder.Entity<Customer>().HasKey(c => c.Id);
+            modelBuilder.Entity<Seller>().HasKey(s => s.Id);
         }
     }
 }
