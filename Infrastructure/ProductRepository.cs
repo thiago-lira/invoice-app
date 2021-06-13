@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Core.Models;
 
 namespace Infrastructure
@@ -9,14 +10,20 @@ namespace Infrastructure
         {
         }
 
+        public async Task<Product> GetById(int id)
+        {
+            return await DbSet.FindAsync(id);
+        }
+
         public Product GetByName(string name)
         {
             throw new NotImplementedException();
         }
 
-        public void Save(Product product)
+        public async Task Save(Product product)
         {
-            throw new NotImplementedException();
+            await DbSet.AddAsync(product);
+            await Context.SaveChangesAsync();
         }
     }
 }
