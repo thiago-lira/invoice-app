@@ -1,4 +1,5 @@
-﻿using Core.Features;
+﻿using System.Threading.Tasks;
+using Core.Features;
 using Core.Models;
 using Infrastructure;
 
@@ -13,7 +14,7 @@ namespace Services
             _repository = repository;
         }
 
-        public void Execute(CreateProduct createProduct)
+        public async Task Execute(CreateProduct createProduct)
         {
             var product = new Product()
             {
@@ -21,7 +22,7 @@ namespace Services
                 Price = createProduct.Price
             };
 
-            _repository.Save(product);
+            await _repository.Save(product);
         }
     }
 }

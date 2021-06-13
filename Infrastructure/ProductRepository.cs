@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Core.Models;
 
 namespace Infrastructure
@@ -14,7 +15,7 @@ namespace Infrastructure
             throw new NotImplementedException();
         }
 
-        public void Save(Product product)
+        public Task Save(Product product)
         {
             throw new NotImplementedException();
         }
