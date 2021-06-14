@@ -8,6 +8,6 @@ namespace Core.Models
     {
         [Required]
         public PaymentTerm Term { get; set; }
-        public DateTime PaidAt { get; set; }
+        public DateTime? PaidAt { get; set; }
     }
 }
