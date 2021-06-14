@@ -12,6 +12,7 @@ namespace Tests
         private readonly OrderRepositoryInMemory _repository;
         private readonly CreateOrderHandler _createOrderHandler;
         private readonly Customer _customer;
+        private readonly Seller _seller;
         private readonly List<Product> _products;
         private readonly Payment _payment;
         private readonly CreateOrder _command;
@@ -23,7 +24,7 @@ namespace Tests
             _customer = new Customer();
             _products = new List<Product>();
             _payment = new Payment();
-            _command = new CreateOrder(_customer, _products, _payment);
+            _command = new CreateOrder(_customer, _seller, _products, _payment);
         }
         [Fact]
         public void GivenACreateOrderCommandThenSaveIt()
