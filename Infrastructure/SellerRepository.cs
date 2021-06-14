@@ -13,7 +13,10 @@ namespace Infrastructure
 
         public async Task<Seller> GetByIdAsync(int id)
         {
-            return await DbSet.Where(s => s.Id == id).FirstOrDefaultAsync();
+            return await DbSet
+                .Where(s => s.Id == id)
+                .Include(s => s.Address)
+                .FirstOrDefaultAsync();
         }
 
         public async Task Save(Seller seller)
