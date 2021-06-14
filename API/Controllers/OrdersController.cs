@@ -52,6 +52,11 @@ namespace API.Controllers
             }
 
             var products = await GetProductsByIdsAsync(orderDTO.ProductsId);
+            if (products.Count != orderDTO.ProductsId.Length)
+            {
+                return BadRequest();
+            }
+
             var handler = new CreateOrderHandler(_orderRepository);
             var command = new CreateOrder(customer, seller, products, orderDTO.Payment);
             await handler.Execute(command);
