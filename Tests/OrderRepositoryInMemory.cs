@@ -10,6 +10,11 @@ namespace Tests
         private readonly List<Order> _orders = new();
         private static int _id { get; set; }
 
+        public OrderRepositoryInMemory()
+        {
+            _id = 1;
+        }
+
         public Order GetById(int id)
         {
             return _orders
@@ -19,8 +24,7 @@ namespace Tests
 
         public void Save(Order order)
         {
-            _id++;
-            order.Id = _id;
+            order.Id = _id++;
 
             _orders.Add(order);
         }

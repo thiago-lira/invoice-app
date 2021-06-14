@@ -9,17 +9,27 @@ namespace Tests
     internal class CustomerRepositoryInMemory : ICustomerRepository
     {
         private readonly List<Customer> _customers = new();
+        private int _id { get; set; }
 
-        public Customer GetCustomerByName(string name)
+        public CustomerRepositoryInMemory()
         {
+            _id = 1;
+        }
+
+        public async Task<Customer> GetByIdAsync(int id)
+        {
+            await Task.Delay(500);
+
             return _customers
-                .Where(c => c.Name == name)
+                .Where(c => c.Id == id)
                 .FirstOrDefault();
         }
 
-        public async Task Save(Customer customer)
+        public async Task SaveAsync(Customer customer)
         {
+            customer.Id = _id++;
             await Task.Delay(500);
+
             _customers.Add(customer);
         }
     }

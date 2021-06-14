@@ -10,12 +10,12 @@ namespace Infrastructure
         {
         }
 
-        public Customer GetCustomerByName(string name)
+        public Task<Customer> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task Save(Customer customer)
+        public async Task SaveAsync(Customer customer)
         {
             await DbSet.AddAsync(customer);
             await Context.SaveChangesAsync();
