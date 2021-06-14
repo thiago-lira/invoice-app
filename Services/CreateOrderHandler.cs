@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Core.Enums;
 using Core.Features;
 using Core.Models;
 using Infrastructure;
@@ -16,6 +16,8 @@ namespace Services
 
         public void Execute(CreateOrder createOrder)
         {
+            createOrder.Payment.Term = PaymentTerm.ONE_MONTH;
+
             var order = new Order()
             {
                 Customer = createOrder.Customer,
