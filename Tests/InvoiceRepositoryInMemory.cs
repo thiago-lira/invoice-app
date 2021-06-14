@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Core.Models;
 using Infrastructure;
 
@@ -16,8 +17,9 @@ namespace Tests
                 .FirstOrDefault();
         }
 
-        public void Save(Invoice invoice)
+        public async Task Save(Invoice invoice)
         {
+            await Task.Delay(500);
             Invoices.Add(invoice);
         }
     }
