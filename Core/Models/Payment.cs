@@ -1,10 +1,11 @@
 ﻿using System;
+using Core.Enums;
 
 namespace Core.Models
 {
     public class Payment : ModelBase
     {
-        public string Term { get; set; }
+        public PaymentTerm Term { get; set; }
         public DateTime PaidAt { get; set; }
     }
 }
