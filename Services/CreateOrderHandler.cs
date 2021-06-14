@@ -22,6 +22,7 @@ namespace Services
             var order = new Order()
             {
                 Customer = createOrder.Customer,
+                Seller = createOrder.Seller,
                 Products = createOrder.Products,
                 Payment = createOrder.Payment
             };
