@@ -6,6 +6,6 @@ namespace Infrastructure
     public interface ISellerRepository
     {
         Task Save(Seller seller);
-        Seller GetSellerByName(string name);
+        Task<Seller> GetByIdAsync(int id);
     }
 }

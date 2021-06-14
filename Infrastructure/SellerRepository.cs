@@ -9,7 +9,7 @@ namespace Infrastructure
         {
         }
 
-        public Seller GetSellerByName(string name)
+        public Task<Seller> GetByIdAsync(int id)
         {
             throw new System.NotImplementedException();
         }
