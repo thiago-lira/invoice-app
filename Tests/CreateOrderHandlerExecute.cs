@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Core.Enums;
 using Core.Features;
 using Core.Models;
@@ -27,18 +28,18 @@ namespace Tests
             _command = new CreateOrder(_customer, _seller, _products, _payment);
         }
         [Fact]
-        public void GivenACreateOrderCommandThenSaveIt()
+        public async Task GivenACreateOrderCommandThenSaveIt()
         {
-            _createOrderHandler.Execute(_command);
+            await _createOrderHandler.Execute(_command);
 
             var createdOrder = _repository.GetById(1);
             Assert.NotNull(createdOrder);
         }
 
         [Fact]
-        public void GivenACreateOrderCommandThenCreateAnInvoiceWithPaymentTermAsOneMonth()
+        public async Task GivenACreateOrderCommandThenCreateAnInvoiceWithPaymentTermAsOneMonth()
         {
-            _createOrderHandler.Execute(_command);
+            await _createOrderHandler.Execute(_command);
 
             var createdOrder = _repository.GetById(1);
             Assert.Equal(PaymentTerm.ONE_MONTH, createdOrder.Payment.Term);

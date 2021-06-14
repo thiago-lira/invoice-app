@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Core.Models;
 using Infrastructure;
 
@@ -22,9 +23,11 @@ namespace Tests
                 .FirstOrDefault();
         }
 
-        public void Save(Order order)
+        public async Task Save(Order order)
         {
             order.Id = _id++;
+
+            await Task.Delay(500);
 
             _orders.Add(order);
         }

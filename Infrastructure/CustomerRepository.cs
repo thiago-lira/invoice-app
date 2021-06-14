@@ -1,6 +1,7 @@
-﻿using System;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Core.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure
 {
@@ -10,9 +11,11 @@ namespace Infrastructure
         {
         }
 
-        public Task<Customer> GetByIdAsync(int id)
+        public async Task<Customer> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await DbSet
+                .Where(c => c.Id == id)
+                .FirstOrDefaultAsync();
         }
 
         public async Task SaveAsync(Customer customer)

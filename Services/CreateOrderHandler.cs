@@ -1,4 +1,5 @@
-﻿using Core.Enums;
+﻿using System.Threading.Tasks;
+using Core.Enums;
 using Core.Features;
 using Core.Models;
 using Infrastructure;
@@ -14,7 +15,7 @@ namespace Services
             _repository = repository;
         }
 
-        public void Execute(CreateOrder createOrder)
+        public async Task Execute(CreateOrder createOrder)
         {
             createOrder.Payment.Term = PaymentTerm.ONE_MONTH;
 
@@ -25,7 +26,7 @@ namespace Services
                 Payment = createOrder.Payment
             };
 
-            _repository.Save(order);
+            await _repository.Save(order);
         }
     }
 }

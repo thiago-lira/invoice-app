@@ -1,10 +1,11 @@
-﻿using Core.Models;
+﻿using System.Threading.Tasks;
+using Core.Models;
 
 namespace Infrastructure
 {
     public interface IOrderRepository
     {
-        public void Save(Order order);
+        public Task Save(Order order);
         public Order GetById(int id);
     }
 }
