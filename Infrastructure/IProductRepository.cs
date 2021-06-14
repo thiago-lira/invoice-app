@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Core.Models;
 
 namespace Infrastructure
@@ -8,5 +9,6 @@ namespace Infrastructure
         public Task Save(Product product);
         public Product GetByName(string name);
         public Task<Product> GetById(int id);
+        Task<List<Product>> GetListByIdsAsync(int[] ids);
     }
 }

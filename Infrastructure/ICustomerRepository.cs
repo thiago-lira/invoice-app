@@ -5,7 +5,7 @@ namespace Infrastructure
 {
     public interface ICustomerRepository
     {
-        Task Save(Customer customer);
-        Customer GetCustomerByName(string name);
+        Task SaveAsync(Customer customer);
+        Task<Customer> GetByIdAsync(int id);
     }
 }

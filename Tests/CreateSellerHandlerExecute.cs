@@ -17,7 +17,7 @@ namespace Tests
 
             await handler.Execute(command);
 
-            var sellerCreated = repository.GetSellerByName("Beltrano");
+            var sellerCreated = repository.GetByIdAsync(1);
             Assert.NotNull(sellerCreated);
         }
     }

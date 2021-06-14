@@ -1,4 +1,5 @@
-﻿using Core.Enums;
+﻿using System.Threading.Tasks;
+using Core.Enums;
 using Core.Features;
 using Core.Models;
 using Services;
@@ -17,7 +18,6 @@ namespace Tests
         {
             var seller = new Seller();
             var customer = new Customer();
-            var payment = new Payment();
 
             Order = new Order()
             {
@@ -26,21 +26,22 @@ namespace Tests
 
             Repository = new InvoiceRepositoryInMemory();
             Handler = new CreateInvoiceHandler(Repository);
-            CreateInvoice = new CreateInvoice(customer, seller, payment, Order);
+            CreateInvoice = new CreateInvoice(customer, seller, Order);
         }
+
         [Fact]
-        public void GivenACreateInvoiceCommandThenSaveAInvoice()
+        public async Task GivenACreateInvoiceCommandThenSaveAInvoice()
         {
-            Handler.Execute(CreateInvoice);
+            await Handler.Execute(CreateInvoice);
 
             var createdInvoice = Repository.GetByOrder(Order);
             Assert.NotNull(createdInvoice);
         }
 
         [Fact]
-        public void GivenACreateInvoiceCommandThenCreatedInvoiceHasStatusPending()
+        public async Task GivenACreateInvoiceCommandThenCreatedInvoiceHasStatusPending()
         {
-            Handler.Execute(CreateInvoice);
+            await Handler.Execute(CreateInvoice);
 
             var createdInvoice = Repository.GetByOrder(Order);
             Assert.Equal(InvoiceStatus.PENDING, createdInvoice.Status);

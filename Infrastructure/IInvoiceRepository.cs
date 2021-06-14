@@ -1,9 +1,10 @@
-﻿using Core.Models;
+﻿using System.Threading.Tasks;
+using Core.Models;
 
 namespace Infrastructure
 {
     public interface IInvoiceRepository
     {
-        public void Save(Invoice invoice);
+        Task Save(Invoice invoice);
     }
 }

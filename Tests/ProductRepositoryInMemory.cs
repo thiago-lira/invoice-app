@@ -33,6 +33,11 @@ namespace Tests
                     .FirstOrDefault();
         }
 
+        public Task<List<Product>> GetListByIdsAsync(int[] ids)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public async Task Save(Product product)
         {
             product.Id = id++;

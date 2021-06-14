@@ -18,7 +18,7 @@ namespace Tests
 
             await handler.Execute(command);
 
-            var customerSaved = repository.GetCustomerByName("Fulano");
+            var customerSaved = await repository.GetByIdAsync(1);
             Assert.NotNull(customerSaved);
         }
     }

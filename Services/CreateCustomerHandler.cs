@@ -23,7 +23,7 @@ namespace Services
                 Address = createCustomer.Address
             };
 
-            await _repository.Save(customer);
+            await _repository.SaveAsync(customer);
         }
     }
 }

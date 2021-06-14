@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Core.Enums;
 using Core.Features;
 using Core.Models;
@@ -15,7 +16,7 @@ namespace Services
             _repository = repository;
         }
 
-        public void Execute(CreateInvoice createInvoice)
+        public async Task Execute(CreateInvoice createInvoice)
         {
             var invoice = new Invoice
             {
@@ -25,7 +26,7 @@ namespace Services
                 CreatedAt = DateTime.UtcNow
             };
 
-            _repository.Save(invoice);
+            await _repository.Save(invoice);
         }
     }
 }
