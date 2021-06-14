@@ -18,7 +18,6 @@ namespace Tests
         {
             var seller = new Seller();
             var customer = new Customer();
-            var payment = new Payment();
 
             Order = new Order()
             {
@@ -27,8 +26,9 @@ namespace Tests
 
             Repository = new InvoiceRepositoryInMemory();
             Handler = new CreateInvoiceHandler(Repository);
-            CreateInvoice = new CreateInvoice(customer, seller, payment, Order);
+            CreateInvoice = new CreateInvoice(customer, seller, Order);
         }
+
         [Fact]
         public async Task GivenACreateInvoiceCommandThenSaveAInvoice()
         {
