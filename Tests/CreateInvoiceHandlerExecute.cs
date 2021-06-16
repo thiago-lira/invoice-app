@@ -21,12 +21,13 @@ namespace Tests
 
             Order = new Order()
             {
+                Seller = seller,
                 Customer = customer
             };
 
             Repository = new InvoiceRepositoryInMemory();
             Handler = new CreateInvoiceHandler(Repository);
-            CreateInvoice = new CreateInvoice(customer, seller, Order);
+            CreateInvoice = new CreateInvoice(Order);
         }
 
         [Fact]

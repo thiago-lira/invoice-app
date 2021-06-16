@@ -8,10 +8,10 @@ namespace Core.Features
         public Seller Seller { get; }
         public Order Order { get; }
 
-        public CreateInvoice(Customer customer, Seller seller, Order order)
+        public CreateInvoice(Order order)
         {
-            Customer = customer;
-            Seller = seller;
+            Customer = order.Customer;
+            Seller = order.Seller;
             Order = order;
         }
     }
