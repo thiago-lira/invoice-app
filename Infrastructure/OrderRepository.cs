@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Core.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure
 {
@@ -9,9 +11,11 @@ namespace Infrastructure
         {
         }
 
-        public Order GetById(int id)
+        public async Task<Order> GetById(int id)
         {
-            throw new System.NotImplementedException();
+            return await DbSet
+                .Where(o => o.Id == id)
+                .FirstOrDefaultAsync();
         }
 
         public async Task Save(Order order)
