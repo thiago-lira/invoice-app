@@ -15,6 +15,12 @@ namespace Infrastructure
         {
             return await DbSet
                 .Where(o => o.Id == id)
+                .Include(o => o.Customer)
+                .ThenInclude(c => c.Address)
+                .Include(o => o.Seller)
+                .ThenInclude(s => s.Address)
+                .Include(o => o.Payment)
+                .Include(o => o.Products)
                 .FirstOrDefaultAsync();
         }
 
