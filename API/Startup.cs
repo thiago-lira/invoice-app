@@ -23,6 +23,7 @@ namespace API
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<ISellerRepository, SellerRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             services.AddDbContext<ApplicationDbContext>();
             services.AddControllers();
         }

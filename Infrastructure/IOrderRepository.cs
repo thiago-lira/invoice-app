@@ -6,6 +6,6 @@ namespace Infrastructure
     public interface IOrderRepository
     {
         public Task Save(Order order);
-        public Order GetById(int id);
+        public Task<Order> GetById(int id);
     }
 }

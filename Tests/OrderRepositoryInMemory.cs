@@ -16,8 +16,10 @@ namespace Tests
             _id = 1;
         }
 
-        public Order GetById(int id)
+        public async Task<Order> GetById(int id)
         {
+            await Task.Delay(500);
+
             return _orders
                 .Where(o => o.Id == id)
                 .FirstOrDefault();

@@ -41,7 +41,7 @@ namespace Tests
         {
             await _createOrderHandler.Execute(_command);
 
-            var createdOrder = _repository.GetById(1);
+            var createdOrder = await _repository.GetById(1);
             Assert.Equal(PaymentTerm.ONE_MONTH, createdOrder.Payment.Term);
         }
     }

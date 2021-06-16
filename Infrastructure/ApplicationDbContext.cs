@@ -26,6 +26,7 @@ namespace Infrastructure
             modelBuilder.Entity<Customer>().HasKey(c => c.Id);
             modelBuilder.Entity<Seller>().HasKey(s => s.Id);
             modelBuilder.Entity<Order>().HasKey(o => o.Id);
+            modelBuilder.Entity<Invoice>().HasKey(i => i.Id);
         }
     }
 }
